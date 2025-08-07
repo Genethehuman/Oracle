@@ -1,0 +1,38 @@
+services:
+  oracle:
+    image: oracle/database:19.3.0-ee
+    platform: linux/arm64
+    environment:
+      - ORACLE_PWD=YourPass321
+    ports:
+      - "1521:1521"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "sqlplus",
+          "-s",
+          "/nolog",
+          "<<< 'whenever sqlerror exit failure
+
+            connect system/YourPass321
+
+            select 1 from dual;'"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 600s
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+
+  test_app:
+    build: .
+    environment:
+      - ORACLE_PASSWORD=YourPass321
+    depends_on:
+      oracle:
+        condition: service_healthy
+
+volumes:
+  oracle_data:
