@@ -31,11 +31,16 @@ Complete solution for running Oracle Database 19c Enterprise Edition on Apple Si
 
 | Command | Description |
 |---------|-------------|
+| `make all` | Full setup from scratch (clone repo + build + start) |
 | `make db` | Starts Oracle Database only |
 | `make test-app` | Starts the test Python application |
 | `make app-logs` | Shows test application logs |
 | `make start-all` | Starts everything (both database and application) |
 | `make stop-all` | Stops all services |
+
+## ⚠️ Important
+
+If building from scratch with `make all`, the process will pause and show you download instructions. **Please read them carefully** - you'll need to download an Oracle installer file (~2.8GB) before continuing on one of the steps!
 
 ## 🚀 Quick Start
 
