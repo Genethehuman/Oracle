@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 def wait_for_database():
-    max_attempts = 30
+    max_attempts = 90  # 15 minutes (for initial DB setup)
     attempt = 0
     while attempt < max_attempts:
         try:

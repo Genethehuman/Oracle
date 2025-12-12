@@ -38,9 +38,13 @@ Complete solution for running Oracle Database 19c Enterprise Edition on Apple Si
 | `make start-all` | Starts everything (both database and application) |
 | `make stop-all` | Stops all services |
 
-## ⚠️ Important
+## ⚠️ Important Notes
 
-If building from scratch with `make all`, the process will pause and show you download instructions. **Please read them carefully** - you'll need to download an Oracle installer file (~2.8GB) before continuing on one of the steps!
+**For first-time setup:**
+- The `make all` command will **pause and show you download instructions** - please read them carefully!
+- You'll need to download Oracle Database 19c ARM64 installer (~2.8GB) from Oracle's website
+- **First database initialization takes 5-15 minutes** - this is normal, please be patient
+- The test application will wait up to 15 minutes for the database to be ready
 
 ## 🚀 Quick Start
 
@@ -52,15 +56,30 @@ cd Oracle
 
 2. Start everything with one command:
 ```bash
-make start-all
+make all
 ```
+This will:
+- Check prerequisites
+- Clone Oracle Docker repository
+- **Pause and show you download instructions** (read them carefully!)
+- Build the Oracle Database image (after you download and place the file)
+- Start everything automatically
 
-3. Check application logs:
+3. Wait for the database to initialize (5-15 minutes on first run)
+
+4. Check application logs:
 ```bash
 make app-logs
 ```
 
+**Note:** If you already have the Oracle Database image built, you can use `make start-all` instead of `make all` for quick restarts.
+
 ## 📝 Usage Examples
+
+### Quick Restart (When Already Built)
+```bash
+make start-all
+```
 
 ### Start Database Only
 ```bash
