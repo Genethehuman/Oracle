@@ -2,6 +2,23 @@
 
 Complete solution for running Oracle Database 19c Enterprise Edition on Apple Silicon Macs (M1, M2, M3, M4+) using Docker.
 
+## 📑 Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Technologies](#technologies)
+- [Project Structure](#project-structure)
+- [Make Commands](#make-commands)
+- [Important Notes](#important-notes)
+- [Quick Start](#quick-start)
+- [Usage Examples](#usage-examples)
+- [What Does the Test Application Do?](#what-does-the-test-application-do)
+- [Configuration & Customization](#configuration--customization)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgments)
+
 ## 📋 Prerequisites
 
 - Docker and Docker Compose
@@ -158,6 +175,44 @@ CONTAINER_NAME := oracle                    # Container name
 ```python
 # Use this connection string in your apps:
 connection_string = "system/YourPass321@localhost:1521/ORCLPDB1"
+```
+
+## 🔧 Troubleshooting
+
+### Password Expired Issue
+
+Oracle Database has a default password expiration policy (180 days). If you encounter password expired errors, follow these steps:
+
+**1. Access the Oracle container:**
+```bash
+docker compose exec oracle bash
+```
+
+**2. Login as SYSDBA:**
+```bash
+sqlplus / as sysdba
+```
+
+**3. Update system password:**
+```sql
+ALTER SESSION SET CONTAINER=CDB$ROOT;
+ALTER USER SYSTEM IDENTIFIED BY YourPass321 CONTAINER=ALL;
+```
+
+**4. Disable password expiration (recommended for development):**
+```sql
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+```
+
+**5. Update custom schema passwords if needed:**
+```sql
+ALTER USER your_schema_name IDENTIFIED BY your_new_password;
+```
+
+**6. Exit and reconnect:**
+```bash
+exit  # Exit sqlplus
+exit  # Exit container
 ```
 
 ### 🔒 Security Notes
