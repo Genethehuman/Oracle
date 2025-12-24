@@ -4,20 +4,20 @@ Complete solution for running Oracle Database 19c Enterprise Edition on Apple Si
 
 ## 📑 Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [Technologies](#technologies)
-- [Project Structure](#project-structure)
-- [Make Commands](#make-commands)
-- [Important Notes](#important-notes)
-- [Quick Start](#quick-start)
-- [Usage Examples](#usage-examples)
-- [What Does the Test Application Do?](#what-does-the-test-application-do)
-- [Configuration & Customization](#configuration--customization)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgments)
+- [📋 Prerequisites](#-prerequisites)
+- [🛠 Technologies](#-technologies)
+- [🏗 Project Structure](#-project-structure)
+- [🎯 Make Commands](#-make-commands)
+- [⚠️ Important Notes](#️-important-notes)
+- [🚀 Quick Start](#-quick-start)
+- [📝 Usage Examples](#-usage-examples)
+- [🔍 What Does the Test Application Do?](#-what-does-the-test-application-do)
+- [⚙️ Configuration & Customization](#️-configuration--customization)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [👥 Authors](#-authors)
+- [🙏 Acknowledgments](#-acknowledgments)
 
 ## 📋 Prerequisites
 
